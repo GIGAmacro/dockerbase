@@ -13,14 +13,14 @@ general:
 
 dependencies:
   override:
-    - echo $CIRCLE_TAG
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+
     - "docker build --rm=false -t $image_user/$image_repo:build_cache .":
         pwd: $image_root
 
 test:
   override:
-    - echo "done"
+    - exit 0
 
 deployment:
   hub:
