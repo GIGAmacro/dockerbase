@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+
+# logs
+LOGDIR=/shared/logs/CURRENT/nginx
+mkdir -p $LOGDIR
+chown -R nginx:nginx $LOGDIR
+
+
+# run
+exec /usr/sbin/nginx -g "daemon off;"

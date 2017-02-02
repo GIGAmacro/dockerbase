@@ -1,0 +1,26 @@
+#!/bin/sh
+set -e
+
+
+# logs
+LOGDIR=/shared/logs/CURRENT/redis
+mkdir -p $LOGDIR
+chown -R redis:redis $LOGDIR
+
+
+# shared
+RUNDIR=/var/run/redis
+PIDFILE=$RUNDIR/redis-server.pid
+
+mkdir -p $RUNDIR
+chmod 755 $RUNDIR
+touch $PIDFILE
+chown redis:redis $RUNDIR $PIDFILE
+
+mkdir -p /shared/redis
+chown -R redis:redis /shared/redis
+
+
+# run
+exec chpst -u redis /usr/local/bin/redis-server /etc/redis/redis.conf
+

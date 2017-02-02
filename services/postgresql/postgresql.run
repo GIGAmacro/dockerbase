@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+
+# logs
+LOGDIR=/shared/logs/CURRENT/postgresql
+mkdir -p $LOGDIR
+chown -R postgres:postgres $LOGDIR
+
+
+# initdb
+if [ ! -d /data/pgsql/9.5 ]; then
+    mkdir -p /data/pgsql/9.5
+    chown postgres:postgres /data/pgsql/9.5
+    su - postgres -c '/usr/lib/postgresql/9.5/bin/initdb --data-checksums -D /data/pgsql/9.5'
+    echo 'local all all peer' > /data/pgsql/9.5/pg_hba.conf
+else
+    chown -R postgres:postgres /data/pgsql/9.5
+fi
+
+
+# run
+exec /sbin/setuser postgres /usr/lib/postgresql/9.5/bin/postgres -D /data/pgsql/9.5 \
+    2>> $LOGDIR/err.log 1>> $LOGDIR/out.log
+
