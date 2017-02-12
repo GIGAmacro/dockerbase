@@ -1,5 +1,5 @@
-FROM hyperknot/baseimage16:1.0.0
-ENV REDIS_VERSION=3.2.7
+FROM hyperknot/baseimage16:1.0.1
+ENV REDIS_VERSION=3.2.8
 
 CMD ["/sbin/my_init"]
 
