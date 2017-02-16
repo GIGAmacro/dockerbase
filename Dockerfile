@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends nodejs
 
 
 # Node yarn
-RUN apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 RUN echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get install -y --no-install-recommends yarn
 
