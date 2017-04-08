@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.0.3
+libssl-dev, nethogs added
+
 ### 1.0.2
 Unzip, p7zip added
 
