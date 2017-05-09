@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.0.5
+Using Mozjpeg 3.2
+
 ### 1.0.4
 nload, iftop added, DEV_MODE removed from init logs
 using baseimage16:1.0.2
