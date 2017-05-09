@@ -1,5 +1,7 @@
 FROM hyperknot/baseimage16:1.0.2
+
 ENV REDIS_VERSION=3.2.8
+ENV MOZJPEG_VERSION=3.2
 
 CMD ["/sbin/my_init"]
 
@@ -16,7 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # mozjpeg
 
 WORKDIR /tmp
-RUN wget -qO out.tgz https://github.com/mozilla/mozjpeg/releases/download/v3.1/mozjpeg-3.1-release-source.tar.gz && \
+RUN wget -qO out.tgz https://github.com/mozilla/mozjpeg/releases/download/v$MOZJPEG_VERSION/mozjpeg-$MOZJPEG_VERSION-release-source.tar.gz && \
     tar -xzf out.tgz
 WORKDIR /tmp/mozjpeg
 RUN ./configure --prefix=/usr/local/opt/mozjpeg && \
