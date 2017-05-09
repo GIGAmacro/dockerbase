@@ -1,4 +1,4 @@
-FROM hyperknot/baseimage16:1.0.1
+FROM hyperknot/baseimage16:1.0.2
 ENV REDIS_VERSION=3.2.8
 
 CMD ["/sbin/my_init"]
@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends -o Dpkg::Options::="--force-confold"
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    aria2 bash-completion build-essential ca-certificates curl file git htop iproute2 libffi-dev lsof mc nano nasm net-tools netbase openssh-client psmisc python rsync silversearcher-ag time tmux wget unzip p7zip-full libssl-dev nethogs
+    aria2 bash-completion build-essential ca-certificates curl file git htop iproute2 libffi-dev lsof mc nano nasm net-tools netbase openssh-client psmisc python rsync silversearcher-ag time tmux wget unzip p7zip-full libssl-dev nethogs nload iftop
 
 
 # mozjpeg
