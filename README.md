@@ -2,6 +2,12 @@
 
 ## Versions
 
+### 1.0.7
+Node 6.x
+
+### 1.0.6
+Redis 3.2.9
+
 ### 1.0.5
 Using Mozjpeg 3.2
 
