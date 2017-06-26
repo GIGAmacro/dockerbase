@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends -o Dpkg::Options::="--force-confold"
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    aria2 bash-completion build-essential ca-certificates curl file git htop iproute2 libffi-dev lsof mc nano nasm net-tools netbase openssh-client psmisc python rsync silversearcher-ag time tmux wget unzip p7zip-full libssl-dev nethogs nload iftop ncdu
+    aria2 bash-completion build-essential ca-certificates curl file git htop iproute2 libffi-dev lsof mc nano nasm net-tools netbase openssh-client psmisc python rsync silversearcher-ag time tmux wget unzip p7zip-full libssl-dev nethogs nload iftop ncdu pkg-config
 
 
 # mozjpeg

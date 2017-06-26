@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.0.8
+pkg-config added
+
 ### 1.0.7
 Node 6.x
 
