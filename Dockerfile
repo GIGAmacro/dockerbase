@@ -1,6 +1,6 @@
 FROM hyperknot/baseimage16:1.0.2
 
-ENV REDIS_VERSION=3.2.9
+ENV REDIS_VERSION=3.2.10
 ENV MOZJPEG_VERSION=3.2
 
 CMD ["/sbin/my_init"]
