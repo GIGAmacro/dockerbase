@@ -2,6 +2,7 @@ FROM hyperknot/baseimage16:1.0.2
 
 ENV REDIS_VERSION=3.2.10
 ENV MOZJPEG_VERSION=3.2
+ENV POSTGRESQL_VERSION=9.6
 
 CMD ["/sbin/my_init"]
 
@@ -70,7 +71,7 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
 RUN apt-get update && apt-get install -y --no-install-recommends postgresql-common && \
     sed -ri 's/#(create_main_cluster) .*$/\1 = false/' /etc/postgresql-common/createcluster.conf && \
     apt-get install -y --no-install-recommends \
-    postgresql-9.5 postgresql-contrib-9.5 libpq-dev
+    postgresql-$POSTGRESQL_VERSION postgresql-contrib-$POSTGRESQL_VERSION libpq-dev
 
 COPY services/postgresql/postgresql.run /etc/service/postgresql/run
 RUN touch /etc/service/postgresql/down
