@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.0.9
+PostgreSQL 9.6, Redis 3.2.10
+
 ### 1.0.8
 pkg-config added
 
