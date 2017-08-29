@@ -26,12 +26,23 @@ RUN ./configure --prefix=/usr/local/opt/mozjpeg && \
     make install
 
 
-# Python
+# Python 2.7
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python python-pip python-pkg-resources python-setuptools python-wheel python-dev \
     libxslt1-dev
 RUN pip install virtualenv
+
+
+# Python 3.6
+RUN add-apt-repository ppa:jonathonf/python-3.6 -y && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends python3.6 python3.6-dev python3.6-venv && \
+    wget -qO get-pip.py 'https://bootstrap.pypa.io/get-pip.py' && \
+    python3.6 get-pip.py --no-cache-dir && \
+    rm get-pip.py && \
+    rm /usr/local/bin/pip && \
+    pip --version && pip3.6 --version
 
 
 # Node

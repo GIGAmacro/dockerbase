@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.1.0
+Python 3.6 added
+
 ### 1.0.9
 PostgreSQL 9.6, Redis 3.2.10
 
