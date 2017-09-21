@@ -2,6 +2,9 @@
 
 ## Versions
 
+### 1.1.1
+Redis 3.2.11
+
 ### 1.1.0
 Python 3.6 added
 
