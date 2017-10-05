@@ -47,15 +47,15 @@ RUN add-apt-repository ppa:jonathonf/python-3.6 -y && \
 
 # Node
 
-RUN curl --silent --location https://deb.nodesource.com/setup_6.x | bash -
-RUN apt-get update && apt-get install -y --no-install-recommends nodejs
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    apt-get update && apt-get install -y --no-install-recommends nodejs
 
 
 # Yarnpkg
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
-RUN apt-get update && apt-get install -y --no-install-recommends yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && apt-get install -y --no-install-recommends yarn
 
 
 # Redis
