@@ -2,6 +2,10 @@
 
 ## Versions
 
+### 1.2.0
+node 8.x
+yarn updated
+
 ### 1.1.1
 Redis 3.2.11
 
