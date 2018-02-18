@@ -28,7 +28,6 @@ deployment:
     commands:
       - pip install -U docker-squash 'docker < 3'
       - docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
-      # - docker tag $image_user/$image_repo:build_cache $image_user/$image_repo:$CIRCLE_TAG
 
       - docker images
       - docker push $image_user/$image_repo:$CIRCLE_TAG
