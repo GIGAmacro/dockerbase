@@ -1,0 +1,9 @@
+max_connections = 100			# (change requires restart)
+shared_buffers = 128MB			# min 128kB
+dynamic_shared_memory_type = posix	# the default is the first option
+log_timezone = 'UTC'
+datestyle = 'iso, mdy'
+timezone = 'UTC'
+lc_monetary = 'en_US.UTF-8'			# locale for monetary formatting
+lc_numeric = 'en_US.UTF-8'			# locale for number formatting
+lc_time = 'en_US.UTF-8'				# locale for time formatting
