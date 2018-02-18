@@ -82,7 +82,7 @@ RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-k
 RUN apt-get update && apt-get install -y --no-install-recommends postgresql-common && \
     sed -ri 's/#(create_main_cluster) .*$/\1 = false/' /etc/postgresql-common/createcluster.conf && \
     apt-get install -y --no-install-recommends \
-    postgresql-$POSTGRESQL_VERSION postgresql-contrib-$POSTGRESQL_VERSION libpq-dev
+    postgresql-$POSTGRESQL_VERSION postgresql-contrib-$POSTGRESQL_VERSION libpq-dev pgtop
 
 COPY services/postgresql/postgresql.run /etc/service/postgresql/run
 RUN touch /etc/service/postgresql/down
@@ -106,6 +106,7 @@ COPY services/nginx/mime.types /etc/nginx/
 
 
 # logs
+
 COPY services/logs/01_init_logs_current.sh /etc/my_init.d/
 
 
