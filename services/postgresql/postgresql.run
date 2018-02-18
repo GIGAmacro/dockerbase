@@ -19,6 +19,13 @@ else
 fi
 
 
+# use custom config
+if [ -f /shared/postgresql/config/postgresql.conf ]; then
+    cp /shared/postgresql/config/postgresql.conf /data/pgsql/9.6/postgresql.conf
+fi
+
+
+
 # run
 exec /sbin/setuser postgres /usr/lib/postgresql/9.6/bin/postgres -D /data/pgsql/9.6 \
     2>> $LOGDIR/err.log 1>> $LOGDIR/out.log
