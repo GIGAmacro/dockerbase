@@ -1,0 +1,37 @@
+version: 2
+
+jobs:
+  build:
+    environment:
+      image_user: gigamacrodocker
+      image_repo: viewerbase
+
+    docker:
+      - image: circleci/python:3.7
+
+    steps:
+      - checkout
+      - setup_remote_docker
+
+      - run:
+          command: docker build -t $image_user/$image_repo:build_cache .
+
+      - run: sudo pip install docker-squash --disable-pip-version-check
+      - run: docker-squash -t $image_user/$image_repo:$CIRCLE_TAG $image_user/$image_repo:build_cache
+
+      - run: docker images
+
+      - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: docker push $image_user/$image_repo:$CIRCLE_TAG
+
+
+workflows:
+  version: 2
+  tagged-build:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^\d+\.\d+\.\d+$/

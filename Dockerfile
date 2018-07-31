@@ -1,4 +1,4 @@
-FROM hyperknot/baseimage16:1.0.5
+FROM hyperknot/baseimage16:1.0.6
 
 ENV REDIS_VERSION=3.2.11
 ENV MOZJPEG_VERSION=3.2
