@@ -31,6 +31,8 @@ RUN ./configure --prefix=/usr/local/opt/mozjpeg && \
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python python-pip python-pkg-resources python-setuptools python-wheel python-dev \
     libxslt1-dev
+# added pip upgrade to fix zipp not found
+RUN pip install -U pip
 RUN pip install virtualenv --disable-pip-version-check --no-cache-dir
 
 
