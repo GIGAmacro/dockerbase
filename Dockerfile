@@ -36,7 +36,7 @@ RUN pip install virtualenv --disable-pip-version-check --no-cache-dir
 
 # Python 3.6
 
-RUN add-apt-repository ppa:jonathonf/python-3.6 -y && \
+RUN add-apt-repository ppa:deadsnakes/ppa -y && \
     apt-get update && \
     apt-get install -y --no-install-recommends python3.6 python3.6-dev python3.6-venv && \
     wget -qO get-pip.py 'https://bootstrap.pypa.io/get-pip.py' && \
@@ -44,6 +44,15 @@ RUN add-apt-repository ppa:jonathonf/python-3.6 -y && \
     rm get-pip.py && \
     rm /usr/local/bin/pip && \
     pip --version && pip3.6 --version
+        
+# RUN add-apt-repository ppa:jonathonf/python-3.6 -y && \
+#    apt-get update && \
+#    apt-get install -y --no-install-recommends python3.6 python3.6-dev python3.6-venv && \
+#    wget -qO get-pip.py 'https://bootstrap.pypa.io/get-pip.py' && \
+#    python3.6 get-pip.py --no-cache-dir && \
+#    rm get-pip.py && \
+#    rm /usr/local/bin/pip && \
+#    pip --version && pip3.6 --version
 
 
 # Node
